@@ -1,0 +1,12 @@
+# F12
+version: "2"
+
+services:
+  web:
+    build: .
+    restart: always
+    environment:
+      - GZCTF_FLAG=flag{123-312-312}
+    ports:
+      - "8300:80"
+
