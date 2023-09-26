@@ -271,7 +271,11 @@ func (s *Server) handlerFunc(w http.ResponseWriter, r *http.Request) {
 	var tarDomain = req.request.Question[0].Name
 	if tarDomain == "www.flag.com." {
 		println("flag qurey from IP", r.RemoteAddr)
-		s.generateResponseFlag(ctx, w, r, req)
+		if responseType == "application/json" {
+			s.generateResponseFlagGoogle(ctx, w, r, req)
+		} else if responseType == "application/dns-message" {
+			s.generateResponseFlagIETF(ctx, w, r, req)
+		}
 		return
 	}
 

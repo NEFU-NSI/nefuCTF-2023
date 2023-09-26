@@ -7,4 +7,5 @@ COPY ./doh-server.conf /app/doh-server.conf
 EXPOSE 8053
 
 WORKDIR "/app"
+
 CMD "/app/doh_server"
